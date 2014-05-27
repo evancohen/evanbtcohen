@@ -1,3 +1,8 @@
+/**
+  * Adopted From: https://github.com/jeyb/d3.punchcard
+  * API Endpoint: https://developer.github.com/v3/repos/statistics/#punch-card
+**/
+
 var pane_left = 50
   , pane_right = 800
   , width = pane_left + pane_right
@@ -17,6 +22,10 @@ var pane_left = 50
     [1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 0]
   ];
+
+$.get("https://api.github.com/repos/evancohen/crumbletv/stats/punch_card", function(data){
+  console.log(data);
+});
 
 // X-Axis.
 var x = d3.scale.linear().domain([0, 23]).
@@ -57,8 +66,9 @@ for (i in y.ticks(7)) {
     append("text").
     attr("x", margin).
     attr("y", height - 3 * margin - y(i) - 5).
+    attr("fill","white").
     attr("text-anchor", "left").
-    style("stroke", "#fff").
+    style("fill", "#fff").
     text(["Sunday", "Saturday", "Friday", "Thursday", "Wednesday", "Tuesday", "Monday"][i]);
 
   punchcard.
@@ -85,7 +95,7 @@ punchcard.
   attr("x", function(d) { return pane_left - 2 * margin + x(d); }).
   attr("y", height - 3 * margin).
   attr("text-anchor", "middle").
-  style("stroke", "#fff").
+  style("fill", "#fff").
   text(function(d) {
     if (d === 0) {
       return "12a";
