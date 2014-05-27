@@ -48,10 +48,10 @@
       </div>
     </div>
       
-    <div class="row">
+    <div class="row" style="background-image: url('http://evanbtcohen.com/info-vis/images/background.png'); color: #fff;">
       <div class="col-md-12">
       <div id="mapControls" class="row">
-        <form class="form-inline">
+        <form id="settings" class="form-inline">
         <div class="col-lg-4">
           <label>Region
             <select id="mapRegion" name="mapRegion" class="mapSettings">
@@ -156,12 +156,15 @@
        ga('create', 'UA-25197881-1');
        ga('send', 'pageview');
     </script>
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="https://www.google.com/jsapi#v=4"></script>
-    <script src="http://geeksta.net/js/commitmap.js#v=4"></script>
-    <script src="http://geeksta.net/vendor/highlight/highlight.pack.js#v=4"></script>
-    <script src="http://geeksta.net/js/highlight.js#v=4"></script>
+    <script src="/info-vis/scripts/commitmap.js"></script>
+    <style type="text/css">
+      rect[width="1140"]{
+        opacity: 0;
+      }
+    </style>
 
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
