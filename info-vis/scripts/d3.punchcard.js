@@ -50,6 +50,9 @@ function fetchData(repo){
 
     });
 
+  var contributors = $("#contributors");
+  contributors.html('<div class="text-center x-margin-top-45"><img src="/info-vis/images/ajax-loader.gif"></div>');
+
   $.get("https://api.github.com/repos/"+repo+"/stats/contributors")
     .done(function(result){
       //these are sorted by 'total' commits in increasing order
@@ -61,12 +64,11 @@ function fetchData(repo){
         $person.append($("<span/>", {class:"pull-right", text:result[i].total}));
         $contributors.append($person);
       }
-      var contributors = $("#contributors");
       contributors.html('');
       contributors.append($contributors);
     })
     .error(function(err){
-      alert("Could not fetch contributor data :(");
+      contributors.html('<p>Could not find any contributors.</p>');
     });
 }
 
