@@ -34,7 +34,7 @@
 	font-family: 'Open Sans', sans-serif;
 }
 
-.infographic rect[width="1140"], .infographic rect[width="848"]{
+.infographic rect[fill="#ffffff"]{
 	opacity: 0;
 }
 

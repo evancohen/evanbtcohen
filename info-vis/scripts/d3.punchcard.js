@@ -4,7 +4,7 @@
 **/
 require(['d3'], function () {
 var pane_left = 50
-  , pane_right = 800
+  , pane_right = document.getElementById("punchcard").offsetWidth - pane_left
   , width = pane_left + pane_right
   , height = 520
   , margin = 10
