@@ -2,7 +2,7 @@
   * Adopted From: https://github.com/jeyb/d3.punchcard
   * API Endpoint: https://developer.github.com/v3/repos/statistics/#punch-card
 **/
-
+require(['d3'], function () {
 var pane_left = 50
   , pane_right = 800
   , width = pane_left + pane_right
@@ -24,7 +24,7 @@ var pane_left = 50
   ];
 
 $.get("https://api.github.com/repos/evancohen/crumbletv/stats/punch_card", function(data){
-  console.log(data);
+  //console.log(data);
 });
 
 // X-Axis.
@@ -155,3 +155,7 @@ for (i = 0; i < data.length; i++) {
     $(".vis-tool-tip").fadeOut(50).remove();
   }
 }
+
+return true;
+
+});

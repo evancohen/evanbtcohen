@@ -1,2 +1,41 @@
 /*Info Vis*/
+.infographic {
+	background-image: url('/info-vis/images/background.png');
+	color: #e1f1f7;
+	padding-top: 15px;
+	font-family: 'Open Sans', sans-serif;
+}
 
+.infographic h1, .infographic h2 {
+	font-family: 'Oswald', sans-serif;
+}
+
+.infographic h4 {
+	font-family: 'Pacifico', cursive;
+	font-size: 22px;
+}
+
+.infographic h2 {
+	background-image: url('/info-vis/images/header.png');
+	text-transform: uppercase;
+	padding: 10px;
+	text-align: center;
+}
+
+.infographic rect[width="1140"], .infographic rect[width="848"]{
+	opacity: 0;
+}
+
+.infographic .header{
+	text-align: center;
+	border-bottom: none;
+}
+
+.playground-container {
+	text-align: left;
+}
+
+.infographic ul {
+	list-style-type: none;
+	padding-left: 10px;
+}
