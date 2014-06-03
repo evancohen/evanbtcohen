@@ -34,7 +34,7 @@
 	font-family: 'Open Sans', sans-serif;
 }
 
-.infographic rect[fill="#ffffff"]{
+.infographic #map rect[fill="#ffffff"]{
 	opacity: 0;
 }
 
@@ -110,6 +110,11 @@
 	padding-bottom: 5px;
 	margin-bottom: 5px;
 	border-bottom: 2px solid #57738d;
+}
+
+.infographic .list-key.key-large{
+	font-size: 30px;
+	margin-left: 10px;
 }
 
 .infographic ul.contrib-list {

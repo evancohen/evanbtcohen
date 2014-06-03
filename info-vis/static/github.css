@@ -41,6 +41,10 @@
     font-size: 24px;
 }
 
+.octicon.large{
+    font-size: 30px;
+}
+
 i.octicon {
     font-style: normal;
 }
