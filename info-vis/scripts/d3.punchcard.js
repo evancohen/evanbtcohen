@@ -45,7 +45,7 @@ function fetchData(repo){
       $("#punchcard").html('');
       generatePunchcard(newData);
     })
-    .error(function(result){
+    .error(function(err){
       alert("Sorry, that didn't work!");
 
     });
@@ -65,6 +65,9 @@ function fetchData(repo){
       var contributors = $("#contributors");
       contributors.html('');
       contributors.append($contributors);
+    })
+    .error(function(err){
+      alert("Could not fetch contributor data :(");
     });
 }
 
