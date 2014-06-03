@@ -185,20 +185,21 @@ function generatePunchcard(data){
             return "translate(" + tx + ", " + ty + ")";
           });
     }
-    function mover(d) {
-      tooltip = d3.select("body")
-       .append("div")
-       .style("position", "absolute")
-       .style("z-index", "99999")
-       .style("color", "#fff")
-       .attr("class", "vis-tool-tip")
-       .text(d);
-    }
-
-    function mout(d) {
-      $(".vis-tool-tip").fadeOut(50).remove();
-    }
   }
+}
+
+function mover(d) {
+  tooltip = d3.select("body")
+   .append("div")
+   .style("position", "absolute")
+   .style("z-index", "99999")
+   .style("color", "#fff")
+   .attr("class", "vis-tool-tip")
+   .text(d);
+}
+
+function mout(d) {
+  $(".vis-tool-tip").fadeOut(50).remove();
 }
 
 return true;
