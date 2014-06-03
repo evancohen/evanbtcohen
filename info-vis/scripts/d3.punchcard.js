@@ -55,14 +55,13 @@ function fetchData(repo){
       //these are sorted by 'total' commits in increasing order
       $contributors = $("<ul/>", {class : "contrib-list list-small"});
       //$contributors.addClass("repo-list list-small");
-      for(i = result.length - 1; i > 0 && i > result.length - 6; i--){
+      for(i = result.length - 1; i >= 0 && i > result.length - 6; i--){
         $person = $("<li/>", {text : ' ' + result[i].author.login})
           .prepend($("<img/>", {src: result[i].author.avatar_url + 'size=64'}));
         $person.append($("<span/>", {class:"pull-right", text:result[i].total}));
         $contributors.append($person);
       }
       var contributors = $("#contributors");
-      console.log('Contributors', contributors);
       contributors.html('');
       contributors.append($contributors);
     })
