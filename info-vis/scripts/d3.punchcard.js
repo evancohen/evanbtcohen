@@ -3,7 +3,7 @@
   * API Endpoint: https://developer.github.com/v3/repos/statistics/#punch-card
 **/
 require(['d3'], function () {
-var pane_left = 50
+var pane_left = 55
   , pane_right = document.getElementById("punchcard").offsetWidth - pane_left
   , width = pane_left + pane_right
   , height = 520
@@ -55,7 +55,6 @@ function fetchData(repo){
       //these are sorted by 'total' commits in increasing order
       $contributors = $("<ul/>", {class : "contrib-list list-small"});
       //$contributors.addClass("repo-list list-small");
-      console.log($contributors);
       for(i = result.length - 1; i > 0 && i > result.length - 6; i--){
         $person = $("<li/>", {text : ' ' + result[i].author.login})
           .prepend($("<img/>", {src: result[i].author.avatar_url + 'size=64'}));
@@ -63,6 +62,7 @@ function fetchData(repo){
         $contributors.append($person);
       }
       var contributors = $("#contributors");
+      console.log('Contributors', contributors);
       contributors.html('');
       contributors.append($contributors);
     })
