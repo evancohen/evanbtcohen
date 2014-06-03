@@ -46,6 +46,34 @@
 .infographic .header{
 	text-align: center;
 	border-bottom: none;
+	margin-top: 30px;
+}
+
+.infographic .header h3 {
+	margin-bottom: 20px;
+}
+
+.infographic .footer {
+	background: #d0e1e6;
+	color: #383b3d;
+}
+
+.infographic .footer img {
+	width: 50px;
+	position: relative;
+	vertical-align: baseline;
+}
+
+.infographic .footer i, .infographic .footer img:not(:last-child) {
+	margin-right: 5px;
+}
+
+.infographic .footer ul {
+	padding-left: 0;
+}
+
+.infographic .lead {
+	text-align: justify;
 }
 
 .playground-container {
@@ -93,6 +121,10 @@
 	top: -2px;
 }
 
+.infographic .row-stats .description {
+	margin-top: 15px;
+}
+
 .infographic ul.repo-list, .infographic ul.contrib-list img{
 	text-align: left;
 	font-size: 22px;
@@ -126,13 +158,18 @@
 	width: 120px;
 }
 
-.infographic .x-margin-top-45 {
-	margin-top: 45px;
+.infographic .x-margin-top-15 {
+	margin-top: 15px;
 }
 
 .infographic .x-margin-top-30 {
 	margin-top: 30px;
 }
+
+.infographic .x-margin-top-45 {
+	margin-top: 45px;
+}
+
 
 /*COLORS*/
 

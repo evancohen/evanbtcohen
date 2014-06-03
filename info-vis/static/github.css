@@ -36,6 +36,10 @@
     vertical-align: bottom;
 }
 
+.octicon.footer {
+    font-size: 50px;
+}
+
 .octicon.online {
     vertical-align: top;
     font-size: 24px;
