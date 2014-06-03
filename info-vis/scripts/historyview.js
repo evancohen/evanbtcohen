@@ -51,13 +51,16 @@ define(['d3'], function () {
             return d.branchless;
         });
 
+        //return d.branchless;
+
+        //Ignore these markers
         if (selection.classed('commit-pointer')) {
             selection.attr('marker-end', function (d) {
-                return d.branchless ? FADED_MARKER_END : REG_MARKER_END;
+                return d.branchless;// ? REG_MARKER_END : REG_MARKER_END; //FADED_MARKER_END
             });
         } else if (selection.classed('merge-pointer')) {
             selection.attr('marker-end', function (d) {
-                return d.branchless ? FADED_MARKER_END : MERGE_MARKER_END;
+                return d.branchless;// ? REG_MARKER_END : MERGE_MARKER_END;
             });
         }
     };
@@ -164,7 +167,7 @@ define(['d3'], function () {
             diffY = parent.cy - commit.cy,
             length = Math.sqrt((diffX * diffX) + (diffY * diffY));
 
-        return endCX + (view.pointerMargin * 1.2 * (diffX / length));
+        return endCX + (view.pointerMargin * (diffX / length));
     };
 
     py2 = function (commit, view, pp) {
@@ -176,7 +179,7 @@ define(['d3'], function () {
             diffY = endCY - commit.cy,
             length = Math.sqrt((diffX * diffX) + (diffY * diffY));
 
-        return endCY - (view.pointerMargin * 1.2 * (diffY / length));
+        return endCY - (view.pointerMargin * (diffY / length));
     };
 
     fixPointerEndPosition = function (selection, view) {
@@ -237,7 +240,7 @@ define(['d3'], function () {
         this.baseLine = this.height * (config.baseLine || 0.6);
 
         this.commitRadius = config.commitRadius || 20;
-        this.pointerMargin = this.commitRadius * 1.3;
+        this.pointerMargin = this.commitRadius;
 
         this.isRemote = typeof config.remoteName === 'string';
         this.remoteName = config.remoteName;
@@ -469,7 +472,7 @@ define(['d3'], function () {
                 .call(fixPointerStartPosition, view)
                 .attr('x2', function () { return d3.select(this).attr('x1'); })
                 .attr('y2', function () {  return d3.select(this).attr('y1'); })
-                .attr('marker-end', REG_MARKER_END)
+                //.attr('marker-end', REG_MARKER_END)
                 .transition()
                 .duration(500)
                 .call(fixPointerEndPosition, view);
@@ -514,7 +517,7 @@ define(['d3'], function () {
 
                     return [p1, p1].join(' ');
                 })
-                .attr('marker-end', MERGE_MARKER_END)
+                //.attr('marker-end', REG_MARKER_END)
                 .transition()
                 .duration(500)
                 .attr('points', function (d) {

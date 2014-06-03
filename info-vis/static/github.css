@@ -10,6 +10,7 @@
 
 .octicon {
     font-family: 'octicons';
+    font-weight: normal;
     font-size: 16px;
     line-height: 1;
     display: inline-block;
@@ -18,14 +19,26 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.octicon.ultra {
+    font-size: 150px;
+}
+
 .octicon.mega {
     font-size: 185px;
+}
+
+.octicon.not-insane {
+    font-size: 40px;
+}
+
+.octicon.inline {
+    font-size: 35px;
+    vertical-align: bottom;
 }
 
 i.octicon {
     font-style: normal;
 }
-
 
 .octicon-alert:before {
     content: '\f02d';

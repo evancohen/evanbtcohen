@@ -6,13 +6,21 @@
 	font-family: 'Open Sans', sans-serif;
 }
 
-.infographic h1, .infographic h2 {
+.infographic h1, .infographic h2, .infographic h3, .infographic h5, .infographic .oswald {
 	font-family: 'Oswald', sans-serif;
 }
 
-.infographic h4 {
+.infographic h1 {
+	font-size: 100px;
+}
+
+.infographic h4, .infographic .pacifico {
 	font-family: 'Pacifico', cursive;
-	font-size: 22px;
+	font-size: 34px;
+}
+
+.infographic h5 {
+	font-size: 20px;
 }
 
 .infographic h2 {
@@ -22,8 +30,17 @@
 	text-align: center;
 }
 
+.infographic .open-sans {
+	font-family: 'Open Sans', sans-serif;
+}
+
 .infographic rect[width="1140"], .infographic rect[width="848"]{
 	opacity: 0;
+}
+
+.infographic path[fill="#000000"] {
+	stroke: #e1f1f7;
+	fill: #e1f1f7;
 }
 
 .infographic .header{
@@ -38,4 +55,111 @@
 .infographic ul {
 	list-style-type: none;
 	padding-left: 10px;
+}
+
+.infographic a {
+	color: #75a9c1;
+}
+
+.infographic a.openswitch.selected {
+	color: #b5cf89;
+	font-weight: normal;
+}
+
+.infographic a.openswitch.selected i {
+	font-weight: normal;
+}
+
+.infographic #explain-tip {
+	font-size: 32px;
+}
+
+.infographic .row-stats .number {
+	font-size: 125px;
+	font-weight: 700;
+	line-height: 1em;
+}
+
+.infographic .row-stats .number-text {
+	font-size: 50px;
+	font-weight: 700;
+	line-height: 1em;
+}
+
+.infographic .row-stats .text {
+	font-size: 42px;
+	line-height: 1.1em;
+	position: relative;
+	top: -2px;
+}
+
+.infographic ul.repo-list, .infographic ul.contrib-list img{
+	text-align: left;
+	font-size: 22px;
+}
+
+.infographic ul.repo-list img, .infographic ul.contrib-list img {
+	width: 32px;
+}
+
+.infographic ul.repo-list li:not(:last-child), .infographic ul.contrib-list li:not(:last-child){
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+	border-bottom: 2px solid #57738d;
+}
+
+.infographic ul.contrib-list {
+	padding-left: 0;
+}
+
+.infographic #sliderText {
+	display: inline-block;
+	width: 120px;
+}
+
+.infographic .x-margin-top {
+	margin-top: 45px;
+}
+
+/*COLORS*/
+
+.infographic .light-green {
+	color: #b5cf89;
+}
+
+.infographic .dark-green {
+	color: #68774f;
+}
+
+.infographic .light-grey {
+	color: #aebabf;
+}
+
+.infographic .dark-grey {
+	color: #778083;
+}
+
+.infographic .light-blue {
+	color: #75a9c1;
+}
+
+.infographic .dark-blue {
+	color: #57738d;
+}
+
+.infographic .offwhite {
+	color: #e1f1f7;
+}
+
+/*Form icon alignment */
+.left-inner-addon {
+    position: relative;
+}
+.left-inner-addon input {
+    padding-left: 30px;    
+}
+.left-inner-addon i {
+    position: absolute;
+    padding: 10px 12px;
+    pointer-events: none;
 }
