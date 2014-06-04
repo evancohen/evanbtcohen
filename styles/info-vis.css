@@ -128,6 +128,7 @@
 
 .infographic .row-stats .description {
 	margin-top: 15px;
+	font-size: 18px;
 }
 
 .infographic ul.repo-list, .infographic ul.contrib-list img{
@@ -173,6 +174,10 @@
 
 .infographic .x-margin-top-45 {
 	margin-top: 45px;
+}
+
+.infographic .x-margin-top-50 {
+	margin-top: 50px;
 }
 
 .infographic .graph {
