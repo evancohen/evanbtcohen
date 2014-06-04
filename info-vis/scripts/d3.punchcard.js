@@ -52,20 +52,30 @@ function fetchData(repo){
 
   var contributors = $("#contributors");
   contributors.html('<div class="text-center x-margin-top-45"><img src="/info-vis/images/ajax-loader.gif"></div>');
+  populateContributors(repo, contributors);
+}
 
-  $.get("https://api.github.com/repos/"+repo+"/stats/contributors")
+function populateContributors(repo, contributors){
+    $.get("https://api.github.com/repos/"+repo+"/stats/contributors")
     .done(function(result){
-      //these are sorted by 'total' commits in increasing order
-      $contributors = $("<ul/>", {class : "contrib-list list-small"});
-      //$contributors.addClass("repo-list list-small");
-      for(i = result.length - 1; i >= 0 && i > result.length - 6; i--){
-        $person = $("<li/>", {text : ' ' + result[i].author.login})
-          .prepend($("<img/>", {src: result[i].author.avatar_url + 'size=64'}));
-        $person.append($("<span/>", {class:"pull-right", text:result[i].total}));
-        $contributors.append($person);
+      if(result === undefined || result[0] == undefined){
+        setTimeout(function(){
+          populateContributors(repo, contributors);
+        }, 5000);
+      }else{
+        //these are sorted by 'total' commits in increasing order
+        $contributors = $("<ul/>", {class : "contrib-list list-small"});
+        //$contributors.addClass("repo-list list-small");
+        for(i = result.length - 1; i >= 0 && i > result.length - 6; i--){
+          $person = $("<li/>", {text : ' ' + result[i].author.login})
+            .prepend($("<img/>", {src: result[i].author.avatar_url + 'size=64'}));
+          $person.append($("<span/>", {class:"pull-right", text:result[i].total}));
+          $contributors.append($person);
+        }
+        contributors.html('');
+        console.log($contributors);
+        contributors.append($contributors);
       }
-      contributors.html('');
-      contributors.append($contributors);
     })
     .error(function(err){
       contributors.html('<p>Could not find any contributors.</p>');
