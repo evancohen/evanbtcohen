@@ -1,4 +1,6 @@
-﻿if (!String.prototype.trim) {
+﻿/*Adapted from https://github.com/onlywei/explain-git-with-d3*/
+
+if (!String.prototype.trim) {
     String.prototype.trim = function () {
       return this.replace(/^\s+|\s+$/g,'');
     };

@@ -1,3 +1,5 @@
+/*Adapted from http://geeksta.net/visualizations/github-commit-map/ */
+
 google.load('visualization', '1', {'packages': ['geochart']});
 
 var dataurl = 'https://docs.google.com/spreadsheet/ccc?key=0AqFoBe3oBzBIdDA0OEZqWUF5c0NTQk9VRnlldHFIWWc';
