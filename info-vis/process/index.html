@@ -19,7 +19,7 @@
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="/styles/main.css">
-    <link rel="syylesheet" href="s/tyles/info-vis.css">
+    <link rel="stylesheet" href="/styles/info-vis.css">
     <!-- endbuild -->
   </head>
   <body>
@@ -36,9 +36,18 @@
     <nav class="navbar navbar-default" role="navigation">
       <div class="container">
         <ul class="nav navbar-nav">
-          <li><a href="#">Final Infographic</a></li>
+          <li><a href="/info-vis">Final Infographic</a></li>
           <li><a href="/info-vis/modles">Models</a></li>
-          <li class="active"><a href="#">Design Process</a></li>
+          <li class="active dropdown">
+            <a href="/info-vis/process" class="dropdown-toggle" data-toggle="dropdown">Design Process <b class="caret"></b></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="/info-vis/process/appearance">Appearance</a></li>
+              <li><a href="/info-vis/process/numbers">Numbers</a></li>
+              <li><a href="/info-vis/process/location">Location</a></li>
+              <li><a href="/info-vis/process/relationship">Relationships</a></li>
+              <li><a href="/info-vis/process/time">Time</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </nav>

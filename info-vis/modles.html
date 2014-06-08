@@ -19,7 +19,7 @@
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="/styles/main.css">
-    <link rel="syylesheet" href="s/tyles/info-vis.css">
+    <link rel="stylesheet" href="/styles/info-vis.css">
     <!-- endbuild -->
   </head>
   <body>
@@ -37,8 +37,17 @@
       <div class="container">
         <ul class="nav navbar-nav">
           <li><a href="/info-vis">Final Infographic</a></li>
-          <li class="active"><a href="#">Models</a></li>
-          <li><a href="#">Design Process</a></li>
+          <li class="active"><a href="/info-vis/modles">Models</a></li>
+          <li class="dropdown">
+            <a href="/info-vis/process" class="dropdown-toggle" data-toggle="dropdown">Design Process <b class="caret"></b></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="/info-vis/process/appearance">Appearance</a></li>
+              <li><a href="/info-vis/process/numbers">Numbers</a></li>
+              <li><a href="/info-vis/process/location">Location</a></li>
+              <li><a href="/info-vis/process/relationship">Relationships</a></li>
+              <li><a href="/info-vis/process/time">Time</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </nav>
@@ -63,48 +72,6 @@
           Becaue I'm using d3.js for my final project, and my final infographic will be on a web page, so I am restricted to a relitivly vertical layout. While it may seem plain, I think a vertical layout will provide a clear sence of order, which will allow me to explore a narative within my final infographic.
         </p>
       </div>
-    
-
-    
-
-    <div class="row">
-      <div class="col-md-12 text-center"><h4>Feedback May 20</h4></div>
-      <div class="col-md-4">
-        Punchcard
-
-        Size works, the bubbles make it easy to see density. Very effective display. Color model matches well. The x-axis hours should not be black. Make sure that in the final layout the text is big enough!
-
-        Code Frequency
-
-        Doesn't match color model. You can explicitly see when things are being addded and deleted. Axis lables are small again. The 4th of may stands out as an outlier and tells an interesting story.
-
-        Branching and Merging
-        Why are some of the lines? Maybe use a legend?
-
-        Rebasing
-        Show some kind of visual connection from the rebased branch to the applied branch.
-      </div>
-      <div class="col-md-4">
-        Punchcard
-
-        Create a key (for commits). Maybe the time could be done differently (different X-axis).
-        The height of the arms is strange, why are they different? Black on the bottom (change to white). Are there better ways to represent this data?
-
-        Can you do a clock?
-
-        Relationship Displays
-        I don't know anything about that
-      </div>
-      <div class="col-md-4">
-        Punchcard
-
-        Super cool! Pretty simple, should have a title. So cool. The tick marks are a little strange. Can you remove them or do something else. The small bubbles get lost.
-
-        Branching and merging
-
-        Turn it so the head is at the bottom. Should be going down as you commit!
-      </div>
-    </div>
 
     
     <div class="footer">
