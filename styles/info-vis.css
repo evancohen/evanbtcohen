@@ -249,6 +249,10 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	margin-top: 10px;
 }
 
+#video {
+	width: 100%;
+}
+
 /*Form icon alignment */
 .left-inner-addon {
     position: relative;
