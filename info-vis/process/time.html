@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Info Visualization | Evan Cohen</title>
+    <script data-main="/info-vis/scripts/main" src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.4/require.min.js"></script>
     <meta name="description" content="A class project in Information Visualization.">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -16,10 +17,11 @@
     <link rel="stylesheet" href="/styles/bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico|Oswald:400,700|Open+Sans' rel='stylesheet' type='text/css'>
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/styles/info-vis.css">
+    <link rel="stylesheet" href="/info-vis/static/github.css">
     <!-- endbuild -->
   </head>
   <body>
@@ -47,6 +49,7 @@
               <li><a href="/info-vis/process/location">Location</a></li>
               <li><a href="/info-vis/process/relationship">Relationships</a></li>
               <li class="active"><a href="/info-vis/process/time">Time</a></li>
+              <li><a href="/info-vis/process/layout">Layout</a></li>
             </ul>
           </li>
         </ul>
@@ -68,6 +71,31 @@
           </div>
         </div>
     </div>
+  </div>
+    <div class="row">
+          <div class="col-md-4">
+            <h4>Critique <span class="label label-success">1</span></h4>
+            <p>
+             Size works, the bubbles make it easy to see density. Very effective display. Color model matches well. Make sure that in the final layout the text is big enough! You should make the X-axis not black.
+            </p>
+            <p><strong>Changes made baised on critique:</strong> Subtaly increased axis font size. Made X-axis white.</p>
+          </div>
+          <div class="col-md-4">
+            <h4>Critique <span class="label label-success">2</span></h4>
+            <p>Create a key (for commits). Maybe the time could be done differently (different X-axis).
+            The height of the arms is strange, why are they different? Are there better ways to represent this data? Fix the color of the X-axis.</p>
+            <p><strong>Changes made baised on critique:</strong> Created a side-bar with text to describe this infographic to insure clarity.</p>
+          </div>
+          <div class="col-md-4">
+            <h4>Critique <span class="label label-success">3</span></h4>
+            <p>Super cool! Pretty simple, should have a title. So cool. The tick marks are a little strange. Can you remove them or do something else. The small bubbles get lost. You should fix the color of the X-axis.</p>
+
+            <p><strong>Changes made baised on critique:</strong> Experamented with tic-marks, made them all uniform height.</p>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-md-12 text-center"><h2>Revision</h2></div>
+        <div class="col-md-offset-1 col-md-10"><img src="/info-vis/images/time-3.png"></div>
           <div class="col-md-4">
             <h4>Critique <span class="label label-success">1</span></h4>
             <p>
@@ -79,61 +107,39 @@
             <h4>Critique <span class="label label-success">2</span></h4>
             <p>That's Crazy. The hover numbers are cool, maybe you could have the numbers on the side when you hover, kind of like the map. 'Wednesday' is touching the axis, maybe add a little more space.</p>
             
-            <p>Each graphic has the same profile, but different colors, text positioning, and alignment (integrated vs. seperated text)</p>
+            <p>Each graphic has the same profile (Refurring to contribution frequency), but different colors, text positioning, and alignment (integrated vs. seperated text)</p>
 
-            <p>I like the larger size of the grey graphic, but the color of the graphic on the left. The larger size makes it more apperent of what it actually is.</p>
-            <p><strong>Changes made baised on critique:</strong> Increased the size of the graphic on the left.</p>
+            <p>I like the larger size of the grey graphic, but the color of the graphic on the left (above). The larger size makes it more apperent of what it actually is.</p>
+            <p><strong>Changes made baised on critique:</strong> Increased gutter width so Wednesday is no longer bumping into the line.</p>
           </div>
           <div class="col-md-4">
             <h4>Critique <span class="label label-success">3</span></h4>
-            <p>I see a shoe! The simplicity is nice, but what are you trying to show? The graphic on the right has more text, and therefore more info, which I like.</p>
+            <p>Why is the X-axis black? I don't like the position of the days of the week on the Y-Axis. The X-axis is a little crowded. Other than that it looks pretty good.</p>
 
-            <p>The color scheme is good, and the right contrasts with the background better.</p>
+            <p>I like the one on the left way more than the code frequency, that's the one that you should use. It gives a more comprehensive overview and is much more visual.</p>
 
-            <p>The border on the left could be a thinner stroke, rite now it draws attention to the border rather than the graphic itself.</p>
-
-            <p>Overall the one on the left is better.</p>
-            <p><strong>Changes made baised on critique:</strong> Decreased the stroke size for the left graphic and added more text.</p>
+            <p><strong>Changes made baised on critique:</strong> Repositioned days of the week. Only showing AM and PM on the 12th hour to free up space on the X-Axis</p>
     </div>
   </div>
-  <div class="row">
-      <div class="col-md-12 text-center"><h4>Feedback May 20</h4></div>
-      <div class="col-md-4">
-        Punchcard
-
-        Size works, the bubbles make it easy to see density. Very effective display. Color model matches well. The x-axis hours should not be black. Make sure that in the final layout the text is big enough!
-
-        Code Frequency
-
-        Doesn't match color model. You can explicitly see when things are being addded and deleted. Axis lables are small again. The 4th of may stands out as an outlier and tells an interesting story.
-
-        Branching and Merging
-        Why are some of the lines? Maybe use a legend?
-
-        Rebasing
-        Show some kind of visual connection from the rebased branch to the applied branch.
+    <div class="row text-center"><h2>Final Time Model</h2></div>
+    <div class="row infographic">
+        <div class="col-md-12">
+          <h2 id="time">When Do People Use Github</h2>
+        </div>
+        <div class="col-md-9 text-center">
+          <div id="punchcard"></div>
+        </div>
+        <div class="col-md-3">
+          <h4><i class="octicon not-insane octicon-history"></i> Punchcard</h4>
+          <p>The graph on the left shows when people commit. Use the text box below to look at different repositories.</p>
+          <form id="punchcard-form">
+            <div class="left-inner-addon">
+              <i class="octicon octicon-repo dark-blue"></i>
+              <input id="punchcard-repo" type="text" class="form-control" placeholder="owner/repo" value="twbs/bootstrap" />
+          </div>
+          </form>
+        </div>
       </div>
-      <div class="col-md-4">
-        Punchcard
-
-        Create a key (for commits). Maybe the time could be done differently (different X-axis).
-        The height of the arms is strange, why are they different? Black on the bottom (change to white). Are there better ways to represent this data?
-
-        Can you do a clock?
-
-        Relationship Displays
-        I don't know anything about that
-      </div>
-      <div class="col-md-4">
-        Punchcard
-
-        Super cool! Pretty simple, should have a title. So cool. The tick marks are a little strange. Can you remove them or do something else. The small bubbles get lost.
-
-        Branching and merging
-
-        Turn it so the head is at the bottom. Should be going down as you commit!
-      </div>
-    </div>
 </div>
 
     <!-- Google Analytics -->
@@ -147,6 +153,15 @@
        ga('send', 'pageview');
     </script>
 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+require(['d3.punchcard']);
+$(function(){
+  $(".command-list a").on('click', function(){
+    $('#explain-tip').hide();
+  })
+});
+</script>
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.min.js"></script>

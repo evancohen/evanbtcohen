@@ -49,6 +49,7 @@
               <li><a href="/info-vis/process/location">Location</a></li>
               <li><a href="/info-vis/process/relationship">Relationships</a></li>
               <li><a href="/info-vis/process/time">Time</a></li>
+              <li><a href="/info-vis/process/layout">Layout</a></li>
             </ul>
           </li>
         </ul>
@@ -66,12 +67,12 @@
         </div>
         <h2 id="whatis">What is Open Source?</h2>
         <div class="row x-margin-top-30">
-          <div class="col-md-2 text-center"><i class="octicon ultra octicon-organization dark-green"></i></div>
+          <div class="col-md-2 text-center"><i class="octicon ultra octicon-organization light-green"></i></div>
           <div class="col-md-8">
             <p class="lead">In production and development, open source promotes universal access via free license to a product's design or blueprint, and universal redistribution of that design or blueprint, including subsequent improvements to it by anyone.</p>
             <!-- <h3 class="text-center light-green">BASICLLY, IT'S AWESOME</h3> -->
           </div>
-          <div class="col-md-2 text-center"><i class="octicon ultra octicon-cloud-upload dark-green"></i></div>
+          <div class="col-md-2 text-center"><i class="octicon ultra octicon-cloud-upload light-green"></i></div>
         </div>
         <h2 id="whatis">GitHub in 2013</h2>
         <div class="row row-stats text-center oswald x-margin-top-45">
@@ -226,7 +227,9 @@
         </div>
       </div> <!-- END Location Display-->
       <div class="row">
-        <h2 id="time" class="col-md-12">When Do People Use Github</h2>
+        <div class="col-md-12">
+          <h2 id="time">When Do People Use Github</h2>
+        </div>
         <div class="col-md-9 text-center">
           <div id="punchcard"></div>
         </div>
@@ -544,7 +547,6 @@ $(function(){
     $('#explain-tip').hide();
   })
 });
-
 </script>
 
 <script type="text/javascript">
@@ -569,7 +571,6 @@ require(['explaingit'], function (explainGit) {
 
     openSwitch.addEventListener('click', open, false);
 });
-$('#open-commit').click();
 </script>
 
 <script type="text/javascript">

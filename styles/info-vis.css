@@ -241,6 +241,14 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	color: #e1f1f7;
 }
 
+#process h3 {
+	margin-top: 0;
+}
+
+#process .row {
+	margin-top: 10px;
+}
+
 /*Form icon alignment */
 .left-inner-addon {
     position: relative;
