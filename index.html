@@ -540,6 +540,50 @@
       margin-top: 16px;
     }
 
+    /* Patents */
+    .patents-section {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .patents-section .section-header {
+      margin-bottom: 32px;
+    }
+
+    .patents-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .patent-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .patent-item:hover {
+      border-color: var(--accent);
+      color: var(--text-primary);
+    }
+
+    .patent-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .patent-title {
+      color: inherit;
+    }
+
     /* Education */
     .education-card {
       background: var(--bg-card);
@@ -1065,6 +1109,37 @@
           <span class="project-badge">D3.js</span>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- Patents Section -->
+  <section id="patents" class="patents-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <p class="section-label">// Patents</p>
+      </div>
+      <div class="patents-list animate-on-scroll">
+        <a href="https://patents.google.com/patent/US9696967B2" target="_blank" rel="noopener" class="patent-item">
+          <span class="patent-number">US9696967B2</span>
+          <span class="patent-title">Generation of an Application from Data</span>
+        </a>
+        <a href="https://patents.google.com/patent/US20170131974A1" target="_blank" rel="noopener" class="patent-item">
+          <span class="patent-number">US20170131974A1</span>
+          <span class="patent-title">Generation of an Application from Template</span>
+        </a>
+        <a href="https://patents.google.com/patent/US11120212B2" target="_blank" rel="noopener" class="patent-item">
+          <span class="patent-number">US11120212B2</span>
+          <span class="patent-title">Creating and modifying applications from a mobile device</span>
+        </a>
+        <a href="https://patents.google.com/patent/US20210263754A1" target="_blank" rel="noopener" class="patent-item">
+          <span class="patent-number">US20210263754A1</span>
+          <span class="patent-title">Robot browser embedding</span>
+        </a>
+        <a href="https://patents.google.com/patent/US11494203B2" target="_blank" rel="noopener" class="patent-item">
+          <span class="patent-number">US11494203B2</span>
+          <span class="patent-title">Application integration for robotic process automation</span>
+        </a>
       </div>
     </div>
   </section>
