@@ -1,239 +1,1099 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Evan Cohen</title>
-    <meta name="description" content="Evan Cohen is Senior Product Manager at UiPath. This is his website.">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="author" href="http://plus.google.com/109401719570031435685" />
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="styles/bootstrap.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
-    <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-    <meta name="theme-color" content="#d9534f">
-  </head>
-  <body>
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. That's ok, I anticipated that. But if you get the chance, please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evan Cohen - Director of Product, AI Platform</title>
+  <meta name="description" content="Evan Cohen is Director of Product, AI Platform at Trase. Building the future of AI agents.">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <div class="container" view="">
-    <div class="header">
-      <h1 class="text-muted name">Evan Cohen</h1>
-      <!-- <ul class="nav nav-pills nav-main">
-        <li class="active"><a href="#">Resume</a></li>
-        <li><a href="#">Portfolio</a></li>
-        <li><a href="mailto:evanbtcohen@gmail.com">Contact</a></li>
-      </ul> -->
-    </div>
+    :root {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #111111;
+      --bg-card: #161616;
+      --text-primary: #ffffff;
+      --text-secondary: #a0a0a0;
+      --text-muted: #666666;
+      --accent: #6366f1;
+      --accent-glow: rgba(99, 102, 241, 0.4);
+      --gradient-1: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+      --gradient-2: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+      --border: #222222;
+      --radius: 16px;
+      --radius-sm: 8px;
+    }
 
+    html {
+      scroll-behavior: smooth;
+    }
 
-    <div class="row banner">
-      <div class="col-md-4 text-center">
-      <img src="images/profile-3.jpg" class="img-rounded" alt="Evan Cohen" />
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Animated gradient background */
+    .bg-gradient {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.15), transparent),
+        radial-gradient(ellipse 60% 40% at 100% 0%, rgba(139, 92, 246, 0.1), transparent),
+        radial-gradient(ellipse 50% 30% at 0% 100%, rgba(6, 182, 212, 0.08), transparent);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      color: #8b5cf6;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .hero-text {
+      animation: fadeInUp 0.8s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .hero-label::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      animation: pulse 2s ease infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .hero-name {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 24px;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-title {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      color: var(--text-secondary);
+      font-weight: 400;
+      margin-bottom: 32px;
+    }
+
+    .hero-title strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .hero-description {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      max-width: 500px;
+      margin-bottom: 40px;
+    }
+
+    /* Profile Image */
+    .hero-image {
+      position: relative;
+      animation: fadeInUp 0.8s ease 0.2s forwards;
+      opacity: 0;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .hero-image-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      background: var(--gradient-1);
+      border-radius: 24px;
+      opacity: 0.6;
+      filter: blur(20px);
+      z-index: -1;
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: 20px;
+      display: block;
+      border: 1px solid var(--border);
+    }
+
+    /* Social Links */
+    .social-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--text-secondary);
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px var(--accent-glow);
+    }
+
+    .social-link svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      margin-bottom: 60px;
+    }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: all 0.3s ease;
+    }
+
+    .skill-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .skill-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--gradient-1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .skill-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    .skill-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .skill-tag {
+      background: var(--bg-secondary);
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+    }
+
+    /* Experience Timeline */
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .experience-card {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      padding: 40px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .experience-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--gradient-1);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .experience-card:hover {
+      border-color: var(--accent);
+    }
+
+    .experience-card:hover::before {
+      opacity: 1;
+    }
+
+    .experience-card.current {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+    }
+
+    .experience-card.current::before {
+      opacity: 1;
+    }
+
+    .experience-meta {
+      border-right: 1px solid var(--border);
+      padding-right: 40px;
+    }
+
+    .experience-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .experience-company {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .experience-company a {
+      color: var(--text-primary);
+    }
+
+    .experience-company a:hover {
+      color: var(--accent);
+    }
+
+    .current-badge {
+      display: inline-block;
+      background: var(--gradient-1);
+      color: white;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 100px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 12px;
+    }
+
+    .experience-content h4 {
+      font-size: 1.1rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .experience-content p {
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .experience-content ul {
+      list-style: none;
+      color: var(--text-secondary);
+    }
+
+    .experience-content li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+    }
+
+    .experience-content li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .role-section {
+      margin-bottom: 24px;
+    }
+
+    .role-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .role-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .project-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--bg-secondary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 8px;
+    }
+
+    .project-link {
+      color: var(--text-muted);
+      padding: 4px;
+    }
+
+    .project-link:hover {
+      color: var(--accent);
+    }
+
+    .project-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    .project-card h3 a {
+      color: var(--text-primary);
+    }
+
+    .project-card h3 a:hover {
+      color: var(--accent);
+    }
+
+    .project-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .project-badge {
+      display: inline-block;
+      background: rgba(99, 102, 241, 0.1);
+      color: var(--accent);
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-top: 16px;
+    }
+
+    /* Education */
+    .education-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .education-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gradient-2);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .education-icon svg {
+      width: 40px;
+      height: 40px;
+      color: white;
+    }
+
+    .education-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .education-content p {
+      color: var(--text-secondary);
+    }
+
+    .education-content a {
+      color: var(--accent);
+    }
+
+    /* Footer */
+    footer {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .footer-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .footer-copy {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* Scroll animations */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 1024px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        text-align: center;
+      }
+
+      .hero-text {
+        order: 2;
+      }
+
+      .hero-image {
+        order: 1;
+      }
+
+      .hero-image-wrapper {
+        max-width: 300px;
+      }
+
+      .hero-description {
+        margin: 0 auto 40px;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .experience-card {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .experience-meta {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding-right: 0;
+        padding-bottom: 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 60px 0;
+      }
+
+      .hero {
+        padding: 60px 0;
+        min-height: auto;
+      }
+
+      .experience-card {
+        padding: 24px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .education-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px 32px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 16px;
+      }
+
+      .hero-name {
+        font-size: 2.5rem;
+      }
+
+      .skill-card, .project-card {
+        padding: 24px;
+      }
+    }
+
+    /* Noise texture overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-gradient"></div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-label">Currently building AI agents at Trase</div>
+          <h1 class="hero-name">Evan Cohen</h1>
+          <p class="hero-title"><strong>Director of Product, AI Platform</strong> at Trase</p>
+          <p class="hero-description">
+            Building the future of AI agents. 10+ years of experience shipping products at the intersection of AI, automation, and developer tools.
+          </p>
+          <div class="social-links">
+            <a href="#" onclick="mailhidepopup=window.open('https://mailhide.io/e/UNcgR?compact=true','mailhidepopup',width=580,height=635); return false;" class="social-link" aria-label="Email">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </a>
+            <a href="https://github.com/evancohen" class="social-link" aria-label="GitHub" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/evan-cohen-6639b920/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="http://twitter.com/_evnc" class="social-link" aria-label="Twitter" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="hero-image-wrapper">
+            <img src="images/profile-3.jpg" alt="Evan Cohen" loading="eager">
+          </div>
+        </div>
       </div>
-      <div class="col-md-8 qualifications">
-        <h3 class="topless">Qualifications</h3>
-          <ul>
-            <li> Innovative Technical Product Manager with over 8 years' Industry experience.</li>
-            <li> Proven background successfully managing all facets of product development from inception to launch.</li>
-            <li> Expertise in coordinating diverse teams and resources to complete objectives.</li>
-            <li> Highly motivated, reliable, and productive; Organized and detail-oriented.</li>
-          </ul>
-        <h3>Education</h3>
-        <ul class="nav-stacked">
-          <li><strong>University of Washington</strong> - BS <a href="https://ischool.uw.edu/academics/informatics/what-is-informatics">Informatics</a> 2014</li>
-        </ul>
-        <h3>Contact</h3>
-        <ul class="nav-stacked">
-          <li> <a href="#" onclick="mailhidepopup=window.open('https://mailhide.io/e/UNcgR?compact=true','mailhidepopup',width=580,height=635); return false;">Email</a> 
-</li>
-          <li><a href="https://github.com/evancohen">GitHub</a></li>
-          <li><a href="https://www.linkedin.com/in/evan-cohen-6639b920/">LinkedIn</a></li>
-          <li><a href="http://twitter.com/_evnc">Twitter</a></li>
-        </ul>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <p class="section-label">// What I Do</p>
+        <h2 class="section-title">Expertise</h2>
+        <p class="section-subtitle">Specializing in AI products, developer platforms, and enterprise automation.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card animate-on-scroll">
+          <div class="skill-icon">&#x1F916;</div>
+          <h3>AI & Machine Learning</h3>
+          <p>Building intelligent products that leverage the latest in AI, from LLMs to computer vision and beyond.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Enterprise AI</span>
+            <span class="skill-tag">ML Products</span>
+            <span class="skill-tag">AI Agents</span>
+          </div>
+        </div>
+        <div class="skill-card animate-on-scroll">
+          <div class="skill-icon">&#x1F4BB;</div>
+          <h3>Product Leadership</h3>
+          <p>Taking products from zero to millions of users. Full lifecycle ownership from strategy to execution.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Strategy</span>
+            <span class="skill-tag">Roadmapping</span>
+            <span class="skill-tag">User Research</span>
+          </div>
+        </div>
+        <div class="skill-card animate-on-scroll">
+          <div class="skill-icon">&#x1F6E0;</div>
+          <h3>Developer Experience</h3>
+          <p>Creating tools and platforms that developers love to use. APIs, SDKs, and ecosystem integrations.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">APIs</span>
+            <span class="skill-tag">SDKs</span>
+            <span class="skill-tag">DevTools</span>
+          </div>
+        </div>
+        <div class="skill-card animate-on-scroll">
+          <div class="skill-icon">&#x1F3AF;</div>
+          <h3>Technical Background</h3>
+          <p>Engineering foundation enables deep collaboration with teams and informed technical decisions.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Node.js</span>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-4">
-        <h3>Knowledge and Skills</h3>
-        <ul>
-          <li>Product Management</li>
-          <li>Program Management</li>
-          <li>User Experience Design</li>
-          <li>Enterprise AI</li>
-          <li>Machine Learning</li>
-          <li>Software Development</li>
-          <ul>
-            <li>Sysadmin (Linux)</li>
-            <li>JSON/XML REST APIs</li>
-            <li>Object Oriented design</li>
-            <li>Agile & Scrum</li>
-            <li>Mobile Web Technologies</li>
-            <li>Network Design</li>
-            <li>Search Engine Optimization</li>
-          </ul>
-        </ul>
+  </section>
 
-        <h3>Languages and Technologies</h3>
-        <ul>
-          <li>HTML</li>
-          <li>CSS</li>
-          <ul>
-            <li>SASS</li>
-            <li>LESS</li>
-          </ul>
-          <li>JavaScript, Node</li>
-          <ul>
-            <li>Angular</li>
-            <li>jQuery (UI)</li>
-            <li>Prototype</li>
-          </ul>
-          <li>Phonegap (Cordova)</li>
-          <li>PHP</li>
-          <ul>
-            <li>Drupal</li>
-            <li>Wordpress</li>
-          </ul>
-          <li>SQL</li>
-          <li>C++</li>
-          <li>Java</li>
-          <li>Python</li>
-        </ul>
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <p class="section-label">// Career</p>
+        <h2 class="section-title">Experience</h2>
+        <p class="section-subtitle">A decade of building products at the cutting edge of technology.</p>
       </div>
-      <div class="col-md-8">
-        <h3>Work History</h3>
+      <div class="experience-list">
 
-        <h4><a target="_blank" href="http://uipath.com">UiPath</a> (<small>April</small> 2019 - Present)</h4>
-        <strong>Director of Product</strong> AI, Developer Tools, and Ecosystem integrations </br>
-        <strong>Principal Product Manager</strong> UiPath Applicaiton Platform (<small>March</small> 2022 - <small>March</small> 2025)
-          <ul>
-            <li>Leading product for UiPath Apps, Data Service, Action Center, from zero to 1M+ enterprise Users. Freeing people to do meaningful work, without the burden of Legacy UX.</li>
-          </ul>
-        <strong>Senior Product Manager</strong> Customer Experience and Innovation (<small>April</small> 2019 - <small>March</small> 2022)
-          <ul>
-            <li>UiPath Apps from inception to launch</li>
-            <li>Robot.js SDK</li>
-          </ul>
-        <h4><a target="_blank" href="http://microsoft.com">Microsoft</a> (<small>October</small> 2015 - <small>May</small> 2018)</h4>
-        <strong>AI Product Manager II</strong> AI & Research Group - Ambient Computing & Robotics, <a href="https://www.microsoft.com/en-us/ai/business">Buisness AI</a> (<small>November</small> 2015 - <small>May</small> 2018)
-        <ul>
-          <li>Worked with scientists, engineers, designers, and data scientists to create <a href="https://www.youtube.com/watch?v=GlnyiV8QLvc">Microsoft Workplace Safety with Cognitive Services</a></li>
-          <li>Ran product development, UI/UX, user research, science experiments, and team sprints for Virtual AI Agent (<a href="https://dynamics.microsoft.com/en-us/ai/customer-service/">Dynamics 365 AI for Customer Service</a>)</li>
-          <li>Worked with designers to create a universal multi-modal conversational canvas for Microsoft (Cortana, Bot Framework, etc)</li>
-          <li>Worked across partner teams to ship speech and intent processing in GigJam</li>
-          <li>Managed external vendor team to create website and marketing material for GigJam</li>
-        </ul>
-        <strong>Program Manager</strong> <a href="https://powerapps.microsoft.com">PowerApps</a> (<small>August</small> 2014 - <small>October</small> 2015)
-        <ul>
-          <li>Worked with a cross discipline team of engineers and designers to ship PowerApps' mobile application.</li>
-          <li>Worked closely with Cloud & Enterprise Leadership and across teams to deliver a cross-client, cross-product, credential persistence hub.</li>
-          <li>Ran internal dogfooding/beta-testing across the organization and prioritized feedback and bugs.</li>
-          <li>Worked with a small virtual team of other program managers to conceive, plan, prototype, and conduct user research for what is now known as <a href="https://flow.microsoft.com">Microsoft Flow<a/>.</li>
-        </ul>
+        <!-- Trase - Current -->
+        <div class="experience-card current animate-on-scroll">
+          <div class="experience-meta">
+            <p class="experience-date">2025 - Present</p>
+            <h3 class="experience-company"><a href="https://trase.ai" target="_blank" rel="noopener">Trase</a></h3>
+            <span class="current-badge">Current Role</span>
+          </div>
+          <div class="experience-content">
+            <div class="role-section">
+              <h4>Director of Product, AI Platform</h4>
+              <p>Leading product for an AI agents company, building the next generation of intelligent automation.</p>
+            </div>
+          </div>
+        </div>
 
-        <h4><a target="_blank" href="http://dailyuw.com">The Daily</a> (<small>December</small> 2011 - <small>August</small> 2014)</h4>
-        <strong>Senior Web Developer and Technical Support</strong>
-        <ul>
-          <li>Built newspaper website from scratch on LAMP stack with Drupal.</li>
-          <li>Provided Tech support for Editorial staff including new wireless network roll-out, multimedia storage upgrades, and workflow improvements.</li>
-        </ul>
+        <!-- UiPath -->
+        <div class="experience-card animate-on-scroll">
+          <div class="experience-meta">
+            <p class="experience-date">2019 - 2025</p>
+            <h3 class="experience-company"><a href="http://uipath.com" target="_blank" rel="noopener">UiPath</a></h3>
+          </div>
+          <div class="experience-content">
+            <div class="role-section">
+              <h4>Director of Product</h4>
+              <p class="role-date">AI, Developer Tools, and Ecosystem Integrations</p>
+            </div>
+            <div class="role-section">
+              <h4>Principal Product Manager</h4>
+              <p class="role-date">UiPath Application Platform (March 2022 - March 2025)</p>
+              <ul>
+                <li>Led product for UiPath Apps, Data Service, and Action Center from zero to 1M+ enterprise users</li>
+                <li>Freed people to do meaningful work without the burden of legacy UX</li>
+              </ul>
+            </div>
+            <div class="role-section">
+              <h4>Senior Product Manager</h4>
+              <p class="role-date">Customer Experience and Innovation (April 2019 - March 2022)</p>
+              <ul>
+                <li>UiPath Apps from inception to launch</li>
+                <li>Robot.js SDK</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-        <h4><a target="_blank" href="http://trov.com">Trov</a> (<small>March</small> 2013 - <small>March</small> 2014)</h4>
-        <strong>Intern, Software Engineer</strong>
-        <ul>
-          <li>Developed cross platform mobile application using Angular, PhoneGap, and other tools.</li>
-          <li>Implemented existing designs into application and created new designs where applicable.</li>
-          <li>Worked effectively both remotely and in office environment.</li>
-        </ul>
+        <!-- Microsoft -->
+        <div class="experience-card animate-on-scroll">
+          <div class="experience-meta">
+            <p class="experience-date">2014 - 2018</p>
+            <h3 class="experience-company"><a href="http://microsoft.com" target="_blank" rel="noopener">Microsoft</a></h3>
+          </div>
+          <div class="experience-content">
+            <div class="role-section">
+              <h4>AI Product Manager II</h4>
+              <p class="role-date">AI & Research Group - Ambient Computing & Robotics, Business AI (Nov 2015 - May 2018)</p>
+              <ul>
+                <li>Created <a href="https://www.youtube.com/watch?v=GlnyiV8QLvc" target="_blank" rel="noopener">Microsoft Workplace Safety with Cognitive Services</a> with scientists, engineers, designers, and data scientists</li>
+                <li>Ran product development, UI/UX, and user research for Virtual AI Agent (<a href="https://dynamics.microsoft.com/en-us/ai/customer-service/" target="_blank" rel="noopener">Dynamics 365 AI for Customer Service</a>)</li>
+                <li>Created a universal multi-modal conversational canvas for Microsoft (Cortana, Bot Framework)</li>
+                <li>Shipped speech and intent processing in GigJam</li>
+              </ul>
+            </div>
+            <div class="role-section">
+              <h4>Program Manager</h4>
+              <p class="role-date">PowerApps (August 2014 - October 2015)</p>
+              <ul>
+                <li>Shipped <a href="https://powerapps.microsoft.com" target="_blank" rel="noopener">PowerApps</a> mobile application with cross-discipline team</li>
+                <li>Delivered cross-client, cross-product credential persistence hub</li>
+                <li>Conceived and prototyped what became <a href="https://flow.microsoft.com" target="_blank" rel="noopener">Microsoft Flow</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-        <h4><a target="_blank" href="https://getnomon.com">nomON</a> (<small>January</small> 2013 - <small>February</small> 2014)</h4>
-        <strong>Full Stack Software Engineer</strong>
-        <ul>
-          <li><a target="_blank" href="http://www.geekwire.com/2013/startup-weekend-uw/">Won First Place Startup Weekend</a> (1/25/2013)</li>
-          <li>Developed both server and client side applications.</li>
-          <li>Created RESTful API in PHP for data management.</li>
-          <li>Worked with Google Venture Group <a target="_blank" href="http://ordr.in">Ordr.in</a> API's to successfully deliver food.</li>
-        </ul>
-
-        <h4><a target="_blank" href="http://www.tamber.com/">Tamber</a> (<small>November</small> 2010 - <small>June</small> 2012)</h4>
-        <strong>Full Stack Software Engineer</strong>
-        <ul>
-          <li>Created server side application for music and concert suggestion.</li>
-          <li>Primarily focused on front end application.</li>
-          <li>Developed custom MVC for internal use.</li>
-        </ul>
-
-        <h4><a target="_blank" href="http://bhsjacket.com">Berkeley High Jacket</a> (<small>January</small> 2009 - <small>July</small> 2010)</h4>
-        <strong>Senior Web Developer</strong>
-        <ul>
-          <li>Designed and developed site from the ground up using Drupal.</li>
-          <li>Conducted multiple case studies to identify issues and make the site even more user friendly.</li>
-          <li>Received Golden Crown Award March 19th 2010 from The Columbia Scholastic Press Association.</li>
-        </ul>
-
-        <h4>Other Work</h4>
-        <ul>
-          <li><a href="https://github.com/evancohen/sonus">Sonus</a> - Open source speech recognition library with offline hotword detection.</li>
-          <li><a href="https://github.com/evancohen/smart-mirror">Smart Mirror</a> - Open source voice controlled mirror [<a href="https://www.businessinsider.com/smart-mirror-evan-cohen-2015-10">Buisness Insider</a>].</li>
-          <li><a href="/info-vis/">GitHub Data Visualization</a> - A school project for Info 424.</li>
-          <li><a href="http://g.evanbtcohen.com/">gGroceries</a> - Group grocery app (Created in a weekend).</li>
-          <li>Mobile chat application for students of the UW.</li>
-          <li>Developed simple open-source CMS for students that have an interest in web design.</li>
-          <li>Created profitable fully functional ecommerce website equipped with blog and full front-end operability with shopping cart and inventory system.</li>
-          <li>Pro bono web development for local climbing team and "green" newspaper.</li>
-        </ul>
+        <!-- Earlier Career -->
+        <div class="experience-card animate-on-scroll">
+          <div class="experience-meta">
+            <p class="experience-date">2009 - 2014</p>
+            <h3 class="experience-company">Earlier Career</h3>
+          </div>
+          <div class="experience-content">
+            <div class="role-section">
+              <h4>The Daily</h4>
+              <p class="role-date">Senior Web Developer (Dec 2011 - Aug 2014)</p>
+              <ul>
+                <li>Built newspaper website from scratch on LAMP stack with Drupal</li>
+              </ul>
+            </div>
+            <div class="role-section">
+              <h4>Trov</h4>
+              <p class="role-date">Software Engineer Intern (Mar 2013 - Mar 2014)</p>
+              <ul>
+                <li>Developed cross-platform mobile app with Angular and PhoneGap</li>
+              </ul>
+            </div>
+            <div class="role-section">
+              <h4>nomON</h4>
+              <p class="role-date">Full Stack Engineer (Jan 2013 - Feb 2014)</p>
+              <ul>
+                <li><a href="http://www.geekwire.com/2013/startup-weekend-uw/" target="_blank" rel="noopener">Won First Place Startup Weekend</a></li>
+              </ul>
+            </div>
+            <div class="role-section">
+              <h4>Tamber, Berkeley High Jacket</h4>
+              <p class="role-date">Software Engineer (2009 - 2012)</p>
+              <ul>
+                <li>Full stack development, Drupal, music recommendation systems</li>
+                <li>Golden Crown Award from Columbia Scholastic Press Association</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
-      
+  </section>
 
-    <div class="footer">
-      <!-- <div class="pull-right">
-        <p>Built with:</p>
-        <img src="images/yo.gif" alt="Yeoman">
-        <img src="images/grunt.gif" alt="Grunt">
-        <img src="images/bower.gif" alt="Bower">
-        <img src="images/sass.gif" alt="Sass">
-      </div> -->
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <p class="section-label">// Side Projects</p>
+        <h2 class="section-title">Open Source & More</h2>
+        <p class="section-subtitle">Things I've built in my spare time.</p>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card animate-on-scroll">
+          <div class="project-header">
+            <div class="project-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/evancohen/smart-mirror" class="project-link" target="_blank" rel="noopener" aria-label="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3><a href="https://github.com/evancohen/smart-mirror" target="_blank" rel="noopener">Smart Mirror</a></h3>
+          <p>Open source voice-controlled mirror. Featured in Business Insider.</p>
+          <span class="project-badge">Featured in Business Insider</span>
+        </div>
+
+        <div class="project-card animate-on-scroll">
+          <div class="project-header">
+            <div class="project-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/evancohen/sonus" class="project-link" target="_blank" rel="noopener" aria-label="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3><a href="https://github.com/evancohen/sonus" target="_blank" rel="noopener">Sonus</a></h3>
+          <p>Open source speech recognition library with offline hotword detection.</p>
+          <span class="project-badge">Node.js Library</span>
+        </div>
+
+        <div class="project-card animate-on-scroll">
+          <div class="project-header">
+            <div class="project-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            </div>
+            <div class="project-links">
+              <a href="/info-vis/" class="project-link" aria-label="View Project">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3><a href="/info-vis/">GitHub Data Visualization</a></h3>
+          <p>Interactive visualization of GitHub data. School project for Info 424.</p>
+          <span class="project-badge">D3.js</span>
+        </div>
+
+        <div class="project-card animate-on-scroll">
+          <div class="project-header">
+            <div class="project-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </div>
+            <div class="project-links">
+              <a href="http://g.evanbtcohen.com/" class="project-link" target="_blank" rel="noopener" aria-label="View Project">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3><a href="http://g.evanbtcohen.com/" target="_blank" rel="noopener">gGroceries</a></h3>
+          <p>Group grocery app. Built in a weekend.</p>
+          <span class="project-badge">Weekend Project</span>
+        </div>
+      </div>
     </div>
+  </section>
 
+  <!-- Education Section -->
+  <section id="education">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <p class="section-label">// Education</p>
+        <h2 class="section-title">Background</h2>
+      </div>
+      <div class="education-card animate-on-scroll">
+        <div class="education-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/></svg>
+        </div>
+        <div class="education-content">
+          <h3>University of Washington</h3>
+          <p>BS <a href="https://ischool.uw.edu/academics/informatics/what-is-informatics" target="_blank" rel="noopener">Informatics</a>, Information School (iSchool) - 2014</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Google Analytics -->
-     <script>
-       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <span class="footer-name">Evan Cohen</span>
+        <div class="footer-links">
+          <a href="#" onclick="mailhidepopup=window.open('https://mailhide.io/e/UNcgR?compact=true','mailhidepopup',width=580,height=635); return false;">Email</a>
+          <a href="https://github.com/evancohen" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/evan-cohen-6639b920/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="http://twitter.com/_evnc" target="_blank" rel="noopener">Twitter</a>
+        </div>
+        <p class="footer-copy">&copy; 2025 Evan Cohen. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-       ga('create', 'UA-25197881-1');
-       ga('send', 'pageview');
-    </script>
+  <!-- Scroll Animation Script -->
+  <script>
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
 
-    <!--[if lt IE 9]>
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/json3/lib/json3.min.js"></script>
-    <![endif]-->
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
 
-    <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
-    <!-- endbower -->
-    <!-- endbuild -->
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <!-- <script src="scripts/app.js"></script> -->
-        <!-- <script src="scripts/controllers/main.js"></script> -->
-        <!-- endbuild -->
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-25197881-1');
+    ga('send', 'pageview');
+  </script>
 </body>
 </html>
