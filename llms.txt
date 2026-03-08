@@ -1,0 +1,32 @@
+# Evan Cohen
+
+> Evan Cohen is Director of Product, AI Platform at Trase. Product leader with 10+ years translating emerging AI research into transformative products. Based in Seattle, WA.
+
+## Professional
+
+- Currently: Director of Product, AI Platform at [Trase](https://trase.ai) (2025–present)
+- Previously: Director of Product at [UiPath](https://uipath.com) (2019–2025) — led UiPath Apps, Data Service, Action Center from zero to 1M+ enterprise users
+- Previously: AI Product Manager II at [Microsoft](https://microsoft.com) (2015–2018) — AI & Research Group, Ambient Computing & Robotics, Business AI
+
+## Education
+
+- BS Informatics, University of Washington Information School (iSchool), 2014
+
+## Patents
+
+- [US9696967B2](https://patents.google.com/patent/US9696967B2): Generation of an Application from Data
+- [US20170131974A1](https://patents.google.com/patent/US20170131974A1): Generation of an Application from Template
+- [US11120212B2](https://patents.google.com/patent/US11120212B2): Creating and modifying applications from a mobile device
+- [US20210263754A1](https://patents.google.com/patent/US20210263754A1): Robot browser embedding
+- [US11494203B2](https://patents.google.com/patent/US11494203B2): Application integration for robotic process automation
+
+## Open Source
+
+- [Smart Mirror](https://github.com/evancohen/smart-mirror): Voice-controlled smart mirror, 2.8k stars, featured in Business Insider
+- [Sonus](https://github.com/evancohen/sonus): Speech recognition library with offline hotword detection, 640 stars
+
+## Links
+
+- [GitHub](https://github.com/evancohen)
+- [LinkedIn](https://www.linkedin.com/in/evan-cohen-6639b920/)
+- [Twitter/X](https://twitter.com/_evnc)
