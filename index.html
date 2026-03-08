@@ -53,8 +53,8 @@
       --bg-secondary: #111111;
       --bg-card: #161616;
       --text-primary: #ffffff;
-      --text-secondary: #a0a0a0;
-      --text-muted: #666666;
+      --text-secondary: #b8b8b8;
+      --text-muted: #888888;
       --accent: #6366f1;
       --accent-glow: rgba(99, 102, 241, 0.4);
       --gradient-1: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
@@ -76,19 +76,121 @@
       overflow-x: hidden;
     }
 
-    /* Animated gradient background */
-    .bg-gradient {
+    /* Gooey gradient background */
+    .gooey-bg {
+      --color-bg1: #0a0a0a;
+      --color-bg2: #0d0520;
+      --color1: 99, 102, 241;    /* indigo - matches --accent */
+      --color2: 139, 92, 246;    /* violet */
+      --color3: 6, 182, 212;     /* cyan */
+      --color4: 217, 70, 239;    /* fuchsia */
+      --color5: 59, 130, 246;    /* blue */
+      --color-interactive: 139, 92, 246;
+      --circle-size: 80%;
+      --blending: hard-light;
+
       position: fixed;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
-      background:
-        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.15), transparent),
-        radial-gradient(ellipse 60% 40% at 100% 0%, rgba(139, 92, 246, 0.1), transparent),
-        radial-gradient(ellipse 50% 30% at 0% 100%, rgba(6, 182, 212, 0.08), transparent);
-      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
       z-index: -1;
+    }
+
+    .gooey-bg svg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .gooey-container {
+      filter: url(#goo) blur(40px);
+      width: 100%;
+      height: 100%;
+    }
+
+    .gooey-blob {
+      position: absolute;
+      mix-blend-mode: var(--blending);
+      width: var(--circle-size);
+      height: var(--circle-size);
+      top: calc(50% - var(--circle-size) / 2);
+      left: calc(50% - var(--circle-size) / 2);
+      opacity: 1;
+    }
+
+    .g1 {
+      background: radial-gradient(circle at center, rgba(var(--color1), 0.4) 0, rgba(var(--color1), 0) 50%) no-repeat;
+      transform-origin: center center;
+      animation: moveVertical 30s ease infinite;
+      opacity: 0.6;
+    }
+
+    .g2 {
+      background: radial-gradient(circle at center, rgba(var(--color2), 0.4) 0, rgba(var(--color2), 0) 50%) no-repeat;
+      transform-origin: calc(50% - 400px);
+      animation: moveInCircle 20s reverse infinite;
+      opacity: 0.6;
+    }
+
+    .g3 {
+      background: radial-gradient(circle at center, rgba(var(--color3), 0.4) 0, rgba(var(--color3), 0) 50%) no-repeat;
+      top: calc(50% - var(--circle-size) / 2 + 200px);
+      left: calc(50% - var(--circle-size) / 2 - 500px);
+      transform-origin: calc(50% + 400px);
+      animation: moveInCircle 40s linear infinite;
+      opacity: 0.5;
+    }
+
+    .g4 {
+      background: radial-gradient(circle at center, rgba(var(--color4), 0.35) 0, rgba(var(--color4), 0) 50%) no-repeat;
+      transform-origin: calc(50% - 200px);
+      animation: moveHorizontal 40s ease infinite;
+      opacity: 0.4;
+    }
+
+    .g5 {
+      background: radial-gradient(circle at center, rgba(var(--color5), 0.35) 0, rgba(var(--color5), 0) 50%) no-repeat;
+      width: calc(var(--circle-size) * 2);
+      height: calc(var(--circle-size) * 2);
+      top: calc(50% - var(--circle-size));
+      left: calc(50% - var(--circle-size));
+      transform-origin: calc(50% - 800px) calc(50% + 200px);
+      animation: moveInCircle 20s ease infinite;
+      opacity: 0.5;
+    }
+
+    .g-interactive {
+      position: absolute;
+      background: radial-gradient(circle at center, rgba(var(--color-interactive), 0.4) 0, rgba(var(--color-interactive), 0) 50%) no-repeat;
+      mix-blend-mode: var(--blending);
+      width: 100%;
+      height: 100%;
+      top: -50%;
+      left: -50%;
+      opacity: 0.4;
+    }
+
+    @keyframes moveInCircle {
+      0% { transform: rotate(0deg); }
+      50% { transform: rotate(180deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes moveVertical {
+      0% { transform: translateY(-50%); }
+      50% { transform: translateY(50%); }
+      100% { transform: translateY(-50%); }
+    }
+
+    @keyframes moveHorizontal {
+      0% { transform: translateX(-50%) translateY(-10%); }
+      50% { transform: translateX(50%) translateY(10%); }
+      100% { transform: translateX(-50%) translateY(-10%); }
     }
 
     /* Typography */
@@ -150,8 +252,10 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       padding: 8px 16px;
       border-radius: 100px;
       font-size: 14px;
@@ -247,8 +351,10 @@
       justify-content: center;
       width: 48px;
       height: 48px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 12px;
       color: var(--text-secondary);
       transition: all 0.3s ease;
@@ -296,6 +402,79 @@
       max-width: 600px;
     }
 
+    /* Dark Liquid Glass */
+    .glass {
+      position: relative;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 255, 255, 0.02) 50%,
+        rgba(255, 255, 255, 0.04) 100%
+      );
+      backdrop-filter: blur(24px) saturate(150%) brightness(105%);
+      -webkit-backdrop-filter: blur(24px) saturate(150%) brightness(105%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-top-color: rgba(255, 255, 255, 0.18);
+      border-left-color: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25),
+                  0 2px 8px rgba(0, 0, 0, 0.15),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.08),
+                  inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    /* Specular highlight — light glint across top */
+    .glass::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      border-radius: inherit;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.2) 20%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0.2) 80%,
+        transparent 100%
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Inner glow and depth */
+    .glass::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(
+        160deg,
+        rgba(255, 255, 255, 0.04) 0%,
+        transparent 40%,
+        transparent 60%,
+        rgba(255, 255, 255, 0.015) 100%
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .glass:hover {
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.08) 0%,
+        rgba(255, 255, 255, 0.03) 50%,
+        rgba(255, 255, 255, 0.05) 100%
+      );
+      border-top-color: rgba(255, 255, 255, 0.22);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35),
+                  0 4px 12px rgba(0, 0, 0, 0.2),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                  inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    }
+
     /* Skills Grid */
     .skills-grid {
       display: grid;
@@ -304,17 +483,13 @@
     }
 
     .skill-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 32px;
       transition: all 0.3s ease;
     }
 
     .skill-card:hover {
-      border-color: var(--accent);
       transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     }
 
     .skill-icon {
@@ -367,16 +542,12 @@
       grid-template-columns: 200px 1fr;
       gap: 40px;
       padding: 40px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
       border-radius: var(--radius);
       transition: all 0.3s ease;
-      position: relative;
       overflow: hidden;
     }
 
-    .experience-card::before {
-      content: '';
+    .experience-card > .accent-bar {
       position: absolute;
       top: 0;
       left: 0;
@@ -385,27 +556,19 @@
       background: var(--gradient-1);
       opacity: 0;
       transition: opacity 0.3s ease;
+      z-index: 2;
     }
 
-    .experience-card:hover {
-      border-color: var(--accent);
-    }
-
-    .experience-card:hover::before {
+    .experience-card:hover > .accent-bar {
       opacity: 1;
     }
 
-    .experience-card.current {
-      border-color: var(--accent);
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
-    }
-
-    .experience-card.current::before {
+    .experience-card.current > .accent-bar {
       opacity: 1;
     }
 
     .experience-meta {
-      border-right: 1px solid var(--border);
+      border-right: 1px solid rgba(255, 255, 255, 0.06);
       padding-right: 40px;
     }
 
@@ -500,15 +663,12 @@
     }
 
     .project-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 32px;
       transition: all 0.3s ease;
     }
 
     .project-card:hover {
-      border-color: var(--accent);
       transform: translateY(-4px);
     }
 
@@ -575,7 +735,6 @@
     /* Patents */
     .patents-section {
       padding: 60px 0;
-      border-top: 1px solid var(--border);
     }
 
     .patents-section .section-header {
@@ -593,8 +752,6 @@
       align-items: center;
       gap: 12px;
       padding: 12px 20px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
       border-radius: var(--radius-sm);
       color: var(--text-secondary);
       font-size: 14px;
@@ -602,7 +759,6 @@
     }
 
     .patent-item:hover {
-      border-color: var(--accent);
       color: var(--text-primary);
     }
 
@@ -618,8 +774,6 @@
 
     /* Education */
     .education-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 40px;
       display: flex;
@@ -660,7 +814,6 @@
     /* Footer */
     footer {
       padding: 60px 0;
-      border-top: 1px solid var(--border);
       text-align: center;
     }
 
@@ -746,7 +899,7 @@
 
       .experience-meta {
         border-right: none;
-        border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         padding-right: 0;
         padding-bottom: 24px;
       }
@@ -812,7 +965,26 @@
   </style>
 </head>
 <body>
-  <div class="bg-gradient"></div>
+  <div class="gooey-bg">
+    <svg xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+          <feBlend in="SourceGraphic" in2="goo" />
+        </filter>
+
+      </defs>
+    </svg>
+    <div class="gooey-container">
+      <div class="gooey-blob g1"></div>
+      <div class="gooey-blob g2"></div>
+      <div class="gooey-blob g3"></div>
+      <div class="gooey-blob g4"></div>
+      <div class="gooey-blob g5"></div>
+      <div class="g-interactive" id="gooey-interactive"></div>
+    </div>
+  </div>
 
   <!-- Hero Section -->
   <header>
@@ -862,7 +1034,7 @@
         <p class="section-subtitle">Specializing in AI products, developer platforms, and enterprise automation.</p>
       </div>
       <div class="skills-grid">
-        <div class="skill-card animate-on-scroll">
+        <div class="skill-card glass animate-on-scroll">
           <div class="skill-icon">&#x1F916;</div>
           <h3>AI & Machine Learning</h3>
           <p>Building intelligent products that leverage the latest in AI, from LLMs to computer vision and beyond.</p>
@@ -872,7 +1044,7 @@
             <span class="skill-tag">AI Agents</span>
           </div>
         </div>
-        <div class="skill-card animate-on-scroll">
+        <div class="skill-card glass animate-on-scroll">
           <div class="skill-icon">&#x1F4BB;</div>
           <h3>Product Leadership</h3>
           <p>Taking products from zero to millions of users. Full lifecycle ownership from strategy to execution.</p>
@@ -882,7 +1054,7 @@
             <span class="skill-tag">User Research</span>
           </div>
         </div>
-        <div class="skill-card animate-on-scroll">
+        <div class="skill-card glass animate-on-scroll">
           <div class="skill-icon">&#x1F6E0;</div>
           <h3>Developer Experience</h3>
           <p>Creating tools and platforms that developers love to use. APIs, SDKs, and ecosystem integrations.</p>
@@ -892,7 +1064,7 @@
             <span class="skill-tag">DevTools</span>
           </div>
         </div>
-        <div class="skill-card animate-on-scroll">
+        <div class="skill-card glass animate-on-scroll">
           <div class="skill-icon">&#x1F3AF;</div>
           <h3>Technical Background</h3>
           <p>Engineering foundation enables deep collaboration with teams and informed technical decisions.</p>
@@ -917,7 +1089,7 @@
       <div class="experience-list">
 
         <!-- Trase - Current -->
-        <div class="experience-card current animate-on-scroll">
+        <div class="experience-card glass current animate-on-scroll"><div class="accent-bar"></div>
           <div class="experience-meta">
             <p class="experience-date">2025 - Present</p>
             <h3 class="experience-company"><a href="https://trase.ai" target="_blank" rel="noopener">Trase</a></h3>
@@ -932,7 +1104,7 @@
         </div>
 
         <!-- UiPath -->
-        <div class="experience-card animate-on-scroll">
+        <div class="experience-card glass animate-on-scroll"><div class="accent-bar"></div>
           <div class="experience-meta">
             <p class="experience-date">April 2019 - 2025</p>
             <h3 class="experience-company"><a href="http://uipath.com" target="_blank" rel="noopener">UiPath</a></h3>
@@ -962,7 +1134,7 @@
         </div>
 
         <!-- Microsoft -->
-        <div class="experience-card animate-on-scroll">
+        <div class="experience-card glass animate-on-scroll"><div class="accent-bar"></div>
           <div class="experience-meta">
             <p class="experience-date">October 2015 - May 2018</p>
             <h3 class="experience-company"><a href="http://microsoft.com" target="_blank" rel="noopener">Microsoft</a></h3>
@@ -993,7 +1165,7 @@
         </div>
 
         <!-- The Daily -->
-        <div class="experience-card animate-on-scroll">
+        <div class="experience-card glass animate-on-scroll"><div class="accent-bar"></div>
           <div class="experience-meta">
             <p class="experience-date">December 2011 - August 2014</p>
             <h3 class="experience-company"><a href="http://dailyuw.com" target="_blank" rel="noopener">The Daily</a></h3>
@@ -1010,7 +1182,7 @@
         </div>
 
         <!-- Trov -->
-        <div class="experience-card animate-on-scroll">
+        <div class="experience-card glass animate-on-scroll"><div class="accent-bar"></div>
           <div class="experience-meta">
             <p class="experience-date">March 2013 - March 2014</p>
             <h3 class="experience-company"><a href="http://trov.com" target="_blank" rel="noopener">Trov</a></h3>
@@ -1028,7 +1200,7 @@
         </div>
 
         <!-- nomON -->
-        <div class="experience-card animate-on-scroll">
+        <div class="experience-card glass animate-on-scroll"><div class="accent-bar"></div>
           <div class="experience-meta">
             <p class="experience-date">January 2013 - February 2014</p>
             <h3 class="experience-company"><a href="https://getnomon.com" target="_blank" rel="noopener">nomON</a></h3>
@@ -1047,7 +1219,7 @@
         </div>
 
         <!-- Tamber -->
-        <div class="experience-card animate-on-scroll">
+        <div class="experience-card glass animate-on-scroll"><div class="accent-bar"></div>
           <div class="experience-meta">
             <p class="experience-date">November 2010 - June 2012</p>
             <h3 class="experience-company"><a href="http://www.tamber.com/" target="_blank" rel="noopener">Tamber</a></h3>
@@ -1065,7 +1237,7 @@
         </div>
 
         <!-- Berkeley High Jacket -->
-        <div class="experience-card animate-on-scroll">
+        <div class="experience-card glass animate-on-scroll"><div class="accent-bar"></div>
           <div class="experience-meta">
             <p class="experience-date">January 2009 - July 2010</p>
             <h3 class="experience-company"><a href="http://bhsjacket.com" target="_blank" rel="noopener">Berkeley High Jacket</a></h3>
@@ -1095,7 +1267,7 @@
         <p class="section-subtitle">Things I've built in my spare time.</p>
       </div>
       <div class="projects-grid">
-        <div class="project-card animate-on-scroll">
+        <div class="project-card glass animate-on-scroll">
           <div class="project-header">
             <div class="project-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
@@ -1112,7 +1284,7 @@
           <span class="project-badge">Featured in Business Insider</span>
         </div>
 
-        <div class="project-card animate-on-scroll">
+        <div class="project-card glass animate-on-scroll">
           <div class="project-header">
             <div class="project-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
@@ -1129,7 +1301,7 @@
           <span class="project-badge">Node.js Library</span>
         </div>
 
-        <div class="project-card animate-on-scroll">
+        <div class="project-card glass animate-on-scroll">
           <div class="project-header">
             <div class="project-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
@@ -1156,23 +1328,23 @@
         <p class="section-label">// Patents</p>
       </div>
       <div class="patents-list animate-on-scroll">
-        <a href="https://patents.google.com/patent/US9696967B2" target="_blank" rel="noopener" class="patent-item">
+        <a href="https://patents.google.com/patent/US9696967B2" target="_blank" rel="noopener" class="patent-item glass">
           <span class="patent-number">US9696967B2</span>
           <span class="patent-title">Generation of an Application from Data</span>
         </a>
-        <a href="https://patents.google.com/patent/US20170131974A1" target="_blank" rel="noopener" class="patent-item">
+        <a href="https://patents.google.com/patent/US20170131974A1" target="_blank" rel="noopener" class="patent-item glass">
           <span class="patent-number">US20170131974A1</span>
           <span class="patent-title">Generation of an Application from Template</span>
         </a>
-        <a href="https://patents.google.com/patent/US11120212B2" target="_blank" rel="noopener" class="patent-item">
+        <a href="https://patents.google.com/patent/US11120212B2" target="_blank" rel="noopener" class="patent-item glass">
           <span class="patent-number">US11120212B2</span>
           <span class="patent-title">Creating and modifying applications from a mobile device</span>
         </a>
-        <a href="https://patents.google.com/patent/US20210263754A1" target="_blank" rel="noopener" class="patent-item">
+        <a href="https://patents.google.com/patent/US20210263754A1" target="_blank" rel="noopener" class="patent-item glass">
           <span class="patent-number">US20210263754A1</span>
           <span class="patent-title">Robot browser embedding</span>
         </a>
-        <a href="https://patents.google.com/patent/US11494203B2" target="_blank" rel="noopener" class="patent-item">
+        <a href="https://patents.google.com/patent/US11494203B2" target="_blank" rel="noopener" class="patent-item glass">
           <span class="patent-number">US11494203B2</span>
           <span class="patent-title">Application integration for robotic process automation</span>
         </a>
@@ -1187,7 +1359,7 @@
         <p class="section-label">// Education</p>
         <h2 class="section-title">Background</h2>
       </div>
-      <div class="education-card animate-on-scroll">
+      <div class="education-card glass animate-on-scroll">
         <div class="education-icon">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/></svg>
         </div>
@@ -1237,6 +1409,25 @@
     document.querySelectorAll('.animate-on-scroll').forEach(el => {
       observer.observe(el);
     });
+  </script>
+
+  <!-- Gooey gradient mouse interaction -->
+  <script>
+    (function() {
+      const el = document.getElementById('gooey-interactive');
+      if (!el) return;
+      let curX = 0, curY = 0, tgX = 0, tgY = 0;
+      window.addEventListener('mousemove', function(e) {
+        tgX = e.clientX;
+        tgY = e.clientY;
+      });
+      (function animate() {
+        curX += (tgX - curX) / 20;
+        curY += (tgY - curY) / 20;
+        el.style.transform = 'translate(' + Math.round(curX) + 'px, ' + Math.round(curY) + 'px)';
+        requestAnimationFrame(animate);
+      })();
+    })();
   </script>
 
   <!-- Google Analytics -->
