@@ -404,37 +404,61 @@
 
     /* Dark Liquid Glass */
     .glass {
-      background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(20px) saturate(150%);
-      -webkit-backdrop-filter: blur(20px) saturate(150%);
-      border: 1px solid rgba(255, 255, 255, 0.08);
       position: relative;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: url(#liquid-glass) blur(12px) saturate(140%) brightness(110%);
+      -webkit-backdrop-filter: url(#liquid-glass) blur(12px) saturate(140%) brightness(110%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
 
-    .glass::after {
+    /* Specular highlight — top-left light glint */
+    .glass::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      right: 0;
+      height: 50%;
       border-radius: inherit;
-      background: rgba(255, 255, 255, 0.02);
-      backdrop-filter: blur(1px);
-      -webkit-backdrop-filter: blur(1px);
-      box-shadow: inset -10px -8px 0px -11px rgba(255, 255, 255, 0.15),
-                  inset 0px -9px 0px -8px rgba(255, 255, 255, 0.1);
-      opacity: 0.5;
-      z-index: -1;
-      filter: blur(1px) brightness(110%);
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.08) 0%,
+        rgba(255, 255, 255, 0.02) 40%,
+        transparent 100%
+      );
       pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Edge refraction rim */
+    .glass::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.03),
+                  inset 0 1px 1px rgba(255, 255, 255, 0.1),
+                  inset 0 -1px 1px rgba(255, 255, 255, 0.03);
+      pointer-events: none;
+      z-index: 1;
     }
 
     .glass:hover {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(255, 255, 255, 0.12);
-      box-shadow: 0 8px 32px rgba(99, 102, 241, 0.1),
-                  inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .glass:hover::before {
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(255, 255, 255, 0.03) 40%,
+        transparent 100%
+      );
     }
 
     /* Skills Grid */
@@ -509,8 +533,7 @@
       overflow: hidden;
     }
 
-    .experience-card::before {
-      content: '';
+    .experience-card > .accent-bar {
       position: absolute;
       top: 0;
       left: 0;
@@ -519,13 +542,14 @@
       background: var(--gradient-1);
       opacity: 0;
       transition: opacity 0.3s ease;
+      z-index: 2;
     }
 
-    .experience-card:hover::before {
+    .experience-card:hover > .accent-bar {
       opacity: 1;
     }
 
-    .experience-card.current::before {
+    .experience-card.current > .accent-bar {
       opacity: 1;
     }
 
@@ -937,6 +961,15 @@
           <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
           <feBlend in="SourceGraphic" in2="goo" />
         </filter>
+        <!-- Liquid glass refraction filter for cards -->
+        <filter id="liquid-glass" x="-10%" y="-10%" width="120%" height="120%">
+          <!-- Generate organic displacement pattern -->
+          <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" seed="2" result="noise" />
+          <!-- Subtle refraction: warp the backdrop through the noise -->
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" xChannelSelector="R" yChannelSelector="G" result="displaced" />
+          <!-- Slightly boost saturation of displaced result -->
+          <feColorMatrix in="displaced" type="saturate" values="1.3" result="final" />
+        </filter>
       </defs>
     </svg>
     <div class="gooey-container">
@@ -1052,7 +1085,7 @@
       <div class="experience-list">
 
         <!-- Trase - Current -->
-        <div class="experience-card glass current animate-on-scroll">
+        <div class="experience-card glass current animate-on-scroll"><div class="accent-bar"></div>
           <div class="experience-meta">
             <p class="experience-date">2025 - Present</p>
             <h3 class="experience-company"><a href="https://trase.ai" target="_blank" rel="noopener">Trase</a></h3>
@@ -1067,7 +1100,7 @@
         </div>
 
         <!-- UiPath -->
-        <div class="experience-card glass animate-on-scroll">
+        <div class="experience-card glass animate-on-scroll"><div class="accent-bar"></div>
           <div class="experience-meta">
             <p class="experience-date">April 2019 - 2025</p>
             <h3 class="experience-company"><a href="http://uipath.com" target="_blank" rel="noopener">UiPath</a></h3>
@@ -1097,7 +1130,7 @@
         </div>
 
         <!-- Microsoft -->
-        <div class="experience-card glass animate-on-scroll">
+        <div class="experience-card glass animate-on-scroll"><div class="accent-bar"></div>
           <div class="experience-meta">
             <p class="experience-date">October 2015 - May 2018</p>
             <h3 class="experience-company"><a href="http://microsoft.com" target="_blank" rel="noopener">Microsoft</a></h3>
@@ -1128,7 +1161,7 @@
         </div>
 
         <!-- The Daily -->
-        <div class="experience-card glass animate-on-scroll">
+        <div class="experience-card glass animate-on-scroll"><div class="accent-bar"></div>
           <div class="experience-meta">
             <p class="experience-date">December 2011 - August 2014</p>
             <h3 class="experience-company"><a href="http://dailyuw.com" target="_blank" rel="noopener">The Daily</a></h3>
@@ -1145,7 +1178,7 @@
         </div>
 
         <!-- Trov -->
-        <div class="experience-card glass animate-on-scroll">
+        <div class="experience-card glass animate-on-scroll"><div class="accent-bar"></div>
           <div class="experience-meta">
             <p class="experience-date">March 2013 - March 2014</p>
             <h3 class="experience-company"><a href="http://trov.com" target="_blank" rel="noopener">Trov</a></h3>
@@ -1163,7 +1196,7 @@
         </div>
 
         <!-- nomON -->
-        <div class="experience-card glass animate-on-scroll">
+        <div class="experience-card glass animate-on-scroll"><div class="accent-bar"></div>
           <div class="experience-meta">
             <p class="experience-date">January 2013 - February 2014</p>
             <h3 class="experience-company"><a href="https://getnomon.com" target="_blank" rel="noopener">nomON</a></h3>
@@ -1182,7 +1215,7 @@
         </div>
 
         <!-- Tamber -->
-        <div class="experience-card glass animate-on-scroll">
+        <div class="experience-card glass animate-on-scroll"><div class="accent-bar"></div>
           <div class="experience-meta">
             <p class="experience-date">November 2010 - June 2012</p>
             <h3 class="experience-company"><a href="http://www.tamber.com/" target="_blank" rel="noopener">Tamber</a></h3>
@@ -1200,7 +1233,7 @@
         </div>
 
         <!-- Berkeley High Jacket -->
-        <div class="experience-card glass animate-on-scroll">
+        <div class="experience-card glass animate-on-scroll"><div class="accent-bar"></div>
           <div class="experience-meta">
             <p class="experience-date">January 2009 - July 2010</p>
             <h3 class="experience-company"><a href="http://bhsjacket.com" target="_blank" rel="noopener">Berkeley High Jacket</a></h3>
